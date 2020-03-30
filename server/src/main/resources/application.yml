@@ -1,0 +1,23 @@
+---
+micronaut:
+  application:
+    name: demo-grpc-server
+
+############################
+# Grpc clients  #
+############################
+
+grpc:
+  channels:
+    parking:
+      address: 'http://${grpc.account.host}:${grpc.account.port}'
+      plaintext: true
+      max-retry-attempts: 10
+
+cassandra:
+  contact-point:
+    - ${CASSANDRA_HOST}
+  keyspace: chat
+  datacenter: DC1
+  username: ${CASSANDRA_USERNAME}
+  password: ${CASSANDRA_PASSWORD}
